@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{{ url_for('despesas.home') }}" class="btn btn-secondary mb-4">Voltar à Página Inicial</a>
+<h2>Nova Receita</h2>
+<form method="POST">
+    <div class="mb-3 col-lg-6">
+        <label for="descricao" class="form-label">Descrição</label>
+        <input type="text" class="form-control" id="descricao" name="descricao" required>
+    </div>
+    <div class="mb-3 col-lg-2">
+        <label for="valor" class="form-label">Valor</label>
+        <input type="number" class="form-control" id="valor" name="valor" step="0.01" required>
+    </div>
+    <div class="mb-3 col-lg-2">
+        <label for="data" class="form-label">Data</label>
+        <input type="date" class="form-control" id="data" name="data" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{{ url_for('receitas.listar_receitas') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

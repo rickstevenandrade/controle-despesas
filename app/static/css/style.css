@@ -1,0 +1,69 @@
+body {
+    padding-bottom: 30px; /* Adiciona 50px de espaçamento na parte inferior */
+}
+
+.container {
+    margin-bottom: 20px; /* Adiciona margem ao contêiner principal */
+}
+
+/* Ajuste para o texto branco no cabeçalho das tabelas */
+.table-success th,
+.table-danger th {
+    color: #ffffff; /* Branco */
+}
+
+/* Mantenha o fundo verde claro e vermelho claro */
+.table-success th {
+    background-color: #28a745 !important; /* Verde padrão do Bootstrap */
+}
+
+.table-danger th {
+    background-color: #dc3545 !important; /* Vermelho padrão do Bootstrap */
+}
+
+/* Cor para o conteúdo das tabelas em tema dark */
+.table tbody tr td {
+    color: #ffffff; /* Branco */
+}
+
+/* Ajuste para o cabeçalho em tema dark */
+.table thead th {
+    color: #ffffff; /* Branco */
+    background-color: #343a40; /* Cinza escuro */
+}
+
+/* Ajuste para bordas e linhas em tema dark */
+.table {
+    border-color: #495057; /* Cinza claro */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #495057; /* Destaque ao passar o mouse */
+}
+
+/* Ajusta o tamanho dos gráficos */
+canvas {
+    width: 100% !important; /* Garante que preencha o contêiner */
+    height: 100% !important; /* Preenche o contêiner em altura */
+}
+
+/* Altura específica para cada gráfico */
+#despesasChart, #tiposChart, #tacometroChart {
+    height: 300px; /* Defina a altura padrão */
+}
+
+/* Configura altura fixa para tabelas e permite rolagem */
+.table-container {
+    max-height: 500px; /* Altura máxima da tabela */
+    overflow-y: auto;  /* Permite rolagem vertical */
+}
+
+/* Garante que as colunas fiquem alinhadas com o cabeçalho */
+.table-container table {
+    width: 100%; /* Mantém o tamanho das tabelas */
+}
+
+.btn-danger {
+    background-color: transparent; /* Altere para a cor desejada */
+    border-color: transparent; /* Altere a borda, se necessário */
+}

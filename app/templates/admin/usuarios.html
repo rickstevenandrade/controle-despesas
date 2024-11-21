@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Gerenciar Usuários</h2>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>E-mail</th>
+            <th>Admin</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ 'Sim' if usuario.is_admin else 'Não' }}</td>
+            <td>
+                {% if not usuario.is_admin %}
+                <a href="{{ url_for('admin.tornar_admin', id=usuario.id) }}" class="btn btn-primary btn-sm">Tornar Admin</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
