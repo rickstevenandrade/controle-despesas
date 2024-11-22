@@ -5,7 +5,11 @@ Este projeto foi desenvolvido como parte das atividades da disciplina **Desenvol
 
 **Data de entrega:** 22/11/2024.
 
-**Equipe:** Rick Steven Santos Andrade, Renato Apolinário da Silva, Guilherme de Souza Aguzzoli e Rui Romer Cupertino Sacramento Junior.
+**Equipe:** 
+    - Rick Steven Santos Andrade
+    - Renato Apolinário da Silva
+    - Guilherme de Souza Aguzzoli
+    - Rui Romer Cupertino Sacramento Junior
 
 ---
 
