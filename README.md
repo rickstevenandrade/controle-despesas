@@ -11,6 +11,7 @@ Este projeto foi desenvolvido como parte das atividades da disciplina **Desenvol
   - Renato Apolinário da Silva
   - Guilherme de Souza Aguzzoli
   - Rui Romer Cupertino Sacramento Junior
+  - Daniel Carmo dos Santos
 
 ---
 
