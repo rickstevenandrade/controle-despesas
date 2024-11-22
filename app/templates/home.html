@@ -23,21 +23,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for receita in receitas %}
-                        <tr>
-                            <td class="text-center">{{ loop.index }}</td>
-                            <td>{{ receita.descricao }}</td>
-                            <td>R$ {{ '%.2f' | format(receita.valor) }}</td>
-                            <td>{{ receita.data }}</td>
-                            <td class="text-center align-middle">
-                                <form method="POST" action="{{ url_for('receitas.excluir_receita', id=receita.id) }}" style="display:inline;">
-                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir esta receita?');">
-                                        🗑️
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        {% endfor %}
+                        {% if receitas %}
+                            {% for receita in receitas %}
+                            <tr>
+                                <td class="text-center">{{ loop.index }}</td>
+                                <td>{{ receita.descricao }}</td>
+                                <td>R$ {{ '%.2f' | format(receita.valor) }}</td>
+                                <td>{{ receita.data }}</td>
+                                <td class="text-center align-middle">
+                                    <form method="POST" action="{{ url_for('receitas.excluir_receita', id=receita.id) }}" style="display:inline;">
+                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir esta receita?');">
+                                            🗑️
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="4" class="text-center">Nenhuma receita cadastrada. Use o botão acima para adicionar.</td>
+                            </tr>
+                        {% endif %}
                     </tbody>
                 </table>
             </div>
@@ -62,22 +68,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for despesa in despesas %}
-                        <tr>
-                            <td class="text-center">{{ loop.index }}</td>
-                            <td>{{ despesa.descricao }}</td>
-                            <td>R$ {{ '%.2f' | format(despesa.valor) }}</td>
-                            <td>{{ despesa.data }}</td>
-                            <td>{{ despesa.tipo.descricao }}</td>
-                            <td class="text-center align-middle">
-                                <form method="POST" action="{{ url_for('despesas.excluir_despesa', id=despesa.id) }}" style="display:inline;">
-                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir esta despesa?');">
-                                        🗑️
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        {% endfor %}
+                        {% if despesas %}
+                            {% for despesa in despesas %}
+                            <tr>
+                                <td class="text-center">{{ loop.index }}</td>
+                                <td>{{ despesa.descricao }}</td>
+                                <td>R$ {{ '%.2f' | format(despesa.valor) }}</td>
+                                <td>{{ despesa.data }}</td>
+                                <td>{{ despesa.tipo.descricao }}</td>
+                                <td class="text-center align-middle">
+                                    <form method="POST" action="{{ url_for('despesas.excluir_despesa', id=despesa.id) }}" style="display:inline;">
+                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir esta despesa?');">
+                                            🗑️
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center">Nenhuma despesa cadastrada. Use o botão acima para adicionar.</td>
+                            </tr>
+                        {% endif %}
                     </tbody>
                 </table>
             </div>

@@ -12,27 +12,13 @@ def home():
     if not current_user.is_authenticated:
         return redirect(url_for('auth.login'))
 
-    # Recupera despesas e receitas do usuário logado
-    despesas = Despesa.query.filter_by(usuario_id=current_user.id).all()
-    receitas = Receita.query.filter_by(usuario_id=current_user.id).all()
-
-    # Se não houver despesas ou receitas, não exibe gráficos
-    if not despesas or not receitas:
-        return render_template(
-            'home.html',
-            despesas=None,
-            receitas=None,
-            total_despesas=None,
-            total_receitas=None,
-            tipos_labels=None,
-            tipos_values=None,
-            despesas_labels=None,
-            despesas_values=None
-        )
+    # Recupera despesas e receitas do usuário logado (garantindo listas vazias se não houver dados)
+    despesas = Despesa.query.filter_by(usuario_id=current_user.id).all() or []
+    receitas = Receita.query.filter_by(usuario_id=current_user.id).all() or []
 
     # Calcula o total de despesas e receitas
-    total_despesas = sum([d.valor for d in despesas])
-    total_receitas = sum([r.valor for r in receitas])
+    total_despesas = sum([d.valor for d in despesas]) if despesas else 0
+    total_receitas = sum([r.valor for r in receitas]) if receitas else 0
 
     # Agrupamento de despesas por tipo
     tipos_despesas = db.session.query(
@@ -40,11 +26,11 @@ def home():
         db.func.sum(Despesa.valor)
     ).join(Despesa).filter(Despesa.usuario_id == current_user.id).group_by(TipoDespesa.descricao).all()
 
-    tipos_labels = [t[0] for t in tipos_despesas]
-    tipos_values = [t[1] for t in tipos_despesas]
+    tipos_labels = [t[0] for t in tipos_despesas] if tipos_despesas else []
+    tipos_values = [t[1] for t in tipos_despesas] if tipos_despesas else []
 
-    despesas_labels = [d.descricao for d in despesas]
-    despesas_values = [d.valor for d in despesas]
+    despesas_labels = [d.descricao for d in despesas] if despesas else []
+    despesas_values = [d.valor for d in despesas] if despesas else []
 
     # Renderiza a página inicial com os dados
     return render_template(
@@ -84,7 +70,7 @@ def nova_despesa():
         flash('Despesa cadastrada com sucesso!', 'success')
         return redirect(url_for('despesas.home'))
     return render_template('despesas/nova_despesa.html', tipos=tipos)
-    
+
 @despesas.route('/despesas/excluir/<int:id>', methods=['POST'])
 @login_required
 def excluir_despesa(id):
