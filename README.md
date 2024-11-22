@@ -1,10 +1,9 @@
 # Controle de Finanças
 
-O **Controle de Finanças** é uma aplicação web desenvolvida em **Python** com o framework **Flask**, projetada para facilitar o gerenciamento financeiro pessoal. A aplicação permite registrar receitas e despesas, categorizando-as e exibindo relatórios gráficos para uma visualização clara e objetiva.
+O **Controle de Finanças** é uma aplicação web desenvolvida em **Python** com o framework **Flask**, projetada para facilitar o gerenciamento financeiro pessoal. A aplicação permite registrar receitas e despesas, categorizando-as e exibindo relatórios gráficos para uma visualização clara e objetiva.  
 Este projeto foi desenvolvido como parte das atividades da disciplina **Desenvolvimento Rápido de Aplicações em Python (ARA0095)**, ministrada pelo professor **Heleno Filho**.  
 
-**Data de entrega:** 22/11/2024.
-
+**Data de entrega:** 22/11/2024  
 **Equipe:** 
   - Rick Steven Santos Andrade
   - Renato Apolinário da Silva
