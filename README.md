@@ -70,3 +70,6 @@ Este projeto foi desenvolvido como parte das atividades da disciplina **Desenvol
 1.	**Python 3.8 ou superior** instalado.
 2.	Ferramenta de gerenciamento de pacotes pip.
 3.	Sistema operacional com suporte a sqlite3 (Windows, Linux ou macOS).
+
+Os slides de apresentação do projeto estão no arquivo App_Web_Controle_de_Financas.pptx
+O passo a passo para clonar e configurar localmente a aplicação está no arquivo Documentação do Projeto.pdf
